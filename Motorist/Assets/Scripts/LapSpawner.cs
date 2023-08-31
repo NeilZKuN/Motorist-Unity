@@ -5,7 +5,7 @@ using UnityEngine;
 public class LapSpawner : MonoBehaviour
 {
     [SerializeField] GameObject lapLine;
-    [SerializeField] float lapSpawnSpeed = 100000;
+    [SerializeField] float lapSpawnSpeed = 100;
 
     public GameObject gameManager;
 
@@ -27,7 +27,8 @@ public class LapSpawner : MonoBehaviour
     {
         if (speedTotal < lapSpawnSpeed)
         {
-            speedTotal += speed;
+            speedTotal += speed * Time.deltaTime;
+            Debug.Log(speedTotal);
         }
         else
         {
